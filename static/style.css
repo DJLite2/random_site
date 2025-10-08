@@ -1,0 +1,46 @@
+/* static/style.css */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  color: #222;
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: #f3f2f2;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #055f1c;
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background: #086e05;
+  color: rgb(243, 238, 238);
+}
+
+.btn-secondary {
+  background: #ddd;
+  color: black;
+  margin-left: 6px;
+}
+
+.result {
+  font-size: 1.9rem;
+  margin-top: 50px;
+  font-weight: bold;
+  color: #144705;
+}
