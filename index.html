@@ -1,37 +1,49 @@
 <!doctype html>
-<html>
+<html lang="uz">
 <head>
     <meta charset="utf-8">
     <title>🎲 Random Raqam Generator</title>
 
-    <!-- favicon ulash -->
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
 
-    <!-- CSS ulash -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
   <div class="card">
     <h1>🎲 Random Raqam Generator</h1>
 
-    <form method="post">
+    <form onsubmit="generate(event)">
         <label>Boshlanish soni:
-            <input type="number" name="start" value="{{ start or '' }}" required>
+            <input type="number" id="start" required>
         </label>
 
         <label>Tugash soni:
-            <input type="number" name="end" value="{{ end or '' }}" required>
+            <input type="number" id="end" required>
         </label>
 
         <div>
           <button type="submit" class="btn-primary">Oraliqni o‘rnatish</button>
-          <a href="/" class="btn-secondary" style="text-decoration:none; padding:8px 12px; border-radius:8px;">Yangi random</a>
+          <button type="button" class="btn-secondary" onclick="generate()">Yangi random</button>
         </div>
     </form>
 
-    {% if number %}
-      <div class="result">Natija: {{ number }}</div>
-    {% endif %}
+    <div id="result" class="result"></div>
   </div>
+
+  <script>
+    function generate(e) {
+      if (e) e.preventDefault();
+      const start = parseInt(document.getElementById('start').value);
+      const end = parseInt(document.getElementById('end').value);
+      if (isNaN(start) || isNaN(end) || start >= end) {
+        alert('Iltimos, to‘g‘ri oraliq kiriting!');
+        return;
+      }
+      const number = Math.floor(Math.random() * (end - start + 1)) + start;
+      document.getElementById('result').innerText = "Natija: " + number;
+    }
+  </script>
 </body>
 </html>
